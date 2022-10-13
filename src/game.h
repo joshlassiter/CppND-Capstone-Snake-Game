@@ -6,6 +6,7 @@
 #include "controller.h"
 #include "renderer.h"
 #include "snake.h"
+#include "food.h"
 
 class Game {
  public:
@@ -17,13 +18,17 @@ class Game {
 
  private:
   Snake snake;
-  SDL_Point food;
+  Food food;
+
+  //adding SDL point for the second food
+  Food food2;
 
   std::random_device dev;
   std::mt19937 engine;
   std::uniform_int_distribution<int> random_w;
   std::uniform_int_distribution<int> random_h;
-
+  //uniform disrtribution for food type
+  //std::uniform_int_distribution<std::mt19937::result_type> randType(0,6);
   int score{0};
 
   void PlaceFood();

@@ -304,4 +304,5 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o: \
  /usr/include/c++/11/bits/stl_numeric.h /usr/include/c++/11/bit \
  /usr/include/c++/11/pstl/glue_numeric_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /home/josh/Documents/CppND-Capstone-Snake-Game/src/renderer.h
+ /home/josh/Documents/CppND-Capstone-Snake-Game/src/renderer.h \
+ /home/josh/Documents/CppND-Capstone-Snake-Game/src/food.h

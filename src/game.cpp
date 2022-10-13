@@ -51,15 +51,25 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 }
 
 void Game::PlaceFood() {
-  int x, y;
+  int x, y, z;
+  
   while (true) {
     x = random_w(engine);
     y = random_h(engine);
+    //z = randType(engine);
+    z=1;
     // Check that the location is not occupied by a snake item before placing
     // food.
     if (!snake.SnakeCell(x, y)) {
       food.x = x;
       food.y = y;
+      if (z ==1){
+        food.type = foodType::regular;
+      }
+      else{
+        food.type = foodType::bonus;
+      }
+       
       return;
     }
   }
@@ -75,7 +85,12 @@ void Game::Update() {
 
   // Check if there's food over here
   if (food.x == new_x && food.y == new_y) {
-    score++;
+    if(food.type ==foodType::regular){
+      score++;
+    }
+    else{
+      score = score + 2;
+    }
     PlaceFood();
     // Grow snake and increase speed.
     snake.GrowBody();
