@@ -7,6 +7,7 @@
 #include "renderer.h"
 #include "snake.h"
 #include "food.h"
+#include <cstdlib>
 
 class Game {
  public:
@@ -29,6 +30,7 @@ class Game {
   std::uniform_int_distribution<int> random_h;
   //uniform disrtribution for food type
   //std::uniform_int_distribution<std::mt19937::result_type> randType(0,6);
+  
   int score{0};
 
   void PlaceFood();

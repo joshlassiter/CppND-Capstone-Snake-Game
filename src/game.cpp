@@ -1,6 +1,7 @@
 #include "game.h"
 #include <iostream>
 #include "SDL.h"
+#include <cstdlib>
 
 Game::Game(std::size_t grid_width, std::size_t grid_height)
     : snake(grid_width, grid_height),
@@ -57,20 +58,28 @@ void Game::PlaceFood() {
     x = random_w(engine);
     y = random_h(engine);
     //z = randType(engine);
+    int random = 1 + (rand()%4);
     z=1;
     // Check that the location is not occupied by a snake item before placing
     // food.
     if (!snake.SnakeCell(x, y)) {
-      food.x = x;
+/*       food.x = x;
       food.y = y;
-      if (z ==1){
-        food.type = foodType::regular;
-      }
-      else{
+      if (random ==1){
         food.type = foodType::bonus;
       }
+      else{
+        food.type = foodType::regular;
+      }
        
-      return;
+      return; */
+      if(random == 1){
+        Food first(x,y,foodType::bonus);
+        
+      }
+      else{
+        Food first(x,y,foodType::regular);
+      }
     }
   }
 }
