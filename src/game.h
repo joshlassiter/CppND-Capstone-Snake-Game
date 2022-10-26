@@ -21,7 +21,7 @@ class Game {
   Snake snake;
   Food food;
 
-  //adding SDL point for the second food
+  //adding Food object for the second food
   Food food2;
 
   std::random_device dev;
@@ -34,6 +34,9 @@ class Game {
   int score{0};
 
   void PlaceFood();
+
+  // second function to place second food
+  void PlaceFood2();
   void Update();
 };
 

@@ -39,10 +39,15 @@ Renderer::~Renderer() {
 }
 
 //
-void Renderer::Render(Snake const snake, Food const &food) {
+void Renderer::Render(Snake const snake, Food const &food, Food const &food2) {
   SDL_Rect block;
+  SDL_Rect block2;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
+
+// second block for the second food
+  block2.w = screen_width / grid_width;
+  block2.h = screen_height / grid_height;
 
   // Clear screen
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
@@ -59,6 +64,19 @@ void Renderer::Render(Snake const snake, Food const &food) {
     block.x = food.x * block.w;
     block.y = food.y * block.h;
     SDL_RenderFillRect(sdl_renderer, &block);
+  }
+
+  // Render second food
+  if(food2.type == foodType::bonus){
+    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0x00, 0x00);
+    block2.x = food2.x * block2.w;
+    block2.y = food2.y * block2.h;
+    SDL_RenderFillRect(sdl_renderer, &block2);
+  }else{
+    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
+    block2.x = food2.x * block2.w;
+    block2.y = food2.y * block2.h;
+    SDL_RenderFillRect(sdl_renderer, &block2);
   }
   
 

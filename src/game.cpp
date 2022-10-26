@@ -26,7 +26,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
     Update();
-    renderer.Render(snake, food);
+    renderer.Render(snake, food, food2);
 
     frame_end = SDL_GetTicks();
 
@@ -63,7 +63,7 @@ void Game::PlaceFood() {
     // Check that the location is not occupied by a snake item before placing
     // food.
     if (!snake.SnakeCell(x, y)) {
-/*       food.x = x;
+       food.x = x;
       food.y = y;
       if (random ==1){
         food.type = foodType::bonus;
@@ -72,17 +72,40 @@ void Game::PlaceFood() {
         food.type = foodType::regular;
       }
        
-      return; */
-      if(random == 1){
-        Food first(x,y,foodType::bonus);
-        
-      }
-      else{
-        Food first(x,y,foodType::regular);
-      }
+      return; 
+     
     }
   }
 }
+
+void Game::PlaceFood2() {
+  int x, y, z;
+  
+  while (true) {
+    x = random_w(engine);
+    y = random_h(engine);
+    //z = randType(engine);
+    int random = 1 + (rand()%4);
+    z=1;
+    // Check that the location is not occupied by a snake item before placing
+    // food.
+    if (!snake.SnakeCell(x, y)) {
+       food2.x = x;
+      food2.y = y;
+      if (random ==1){
+        food2.type = foodType::bonus;
+      }
+      else{
+        food2.type = foodType::regular;
+      }
+       
+      return; 
+     
+    }
+  }
+}
+
+
 
 void Game::Update() {
   if (!snake.alive) return;
@@ -101,10 +124,26 @@ void Game::Update() {
       score = score + 2;
     }
     PlaceFood();
+    PlaceFood2();
     // Grow snake and increase speed.
     snake.GrowBody();
     snake.speed += 0.02;
   }
+  else if (food2.x == new_x && food2.y == new_y )
+  {
+   if(food2.type ==foodType::regular){
+      score++;
+    }
+    else{
+      score = score + 2;
+    }
+    PlaceFood();
+    PlaceFood2();
+    // Grow snake and increase speed.
+    snake.GrowBody();
+    snake.speed += 0.02;
+  }
+  
 }
 
 int Game::GetScore() const { return score; }
