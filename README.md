@@ -46,9 +46,9 @@ In this project, you can build your own C++ application or extend this Snake gam
 1. Added a food class to allow the food to have its own data member type(ie. Bonus or regular).
 2. Added a feature that allows user to input their name before the game starts
 3. Store scores to a text document after a user plays the game
-4. Added the opportunity for the user to gain extra points if they hit the "bonus" food 
+4. Added the opportunity for the user to gain extra points if they hit the "bonus" food.  The bonus food is identified by the color green. 
 5. Allowed two food options to be displayed at the same time 
-
+6. Defined a data type "foodType" 
 
 ## CC Attribution-ShareAlike 4.0 International
 
