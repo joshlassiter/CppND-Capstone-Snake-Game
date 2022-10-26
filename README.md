@@ -30,8 +30,28 @@ In this project, you can build your own C++ application or extend this Snake gam
 3. Compile: `cmake .. && make`
 4. Run it: `./SnakeGame`.
 
+## Rubric Points
+1. Object Oriented Programming - The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks.
+
+
+2. loops,Functions, i/o - The project accepts input from a user as part of the necessary operation of the program.
+
+3. loops,Functions, i/o - The project reads data from an external file or writes data to a file as part of the necessary operation of the program.
+
+4. Object Oriented Programming - All class member functions document their effects, either through function names, comments, or formal documentation. Member functions do not change program state in undocumented ways.
+
+5. Object Oriented Programming - All class data members are explicitly specified as public, protected, or private.
+
+## Additional Features
+1. Added a food class to allow the food to have its own data member type(ie. Bonus or regular).
+2. Added a feature that allows user to input their name before the game starts
+3. Store scores to a text document after a user plays the game
+4. Added the opportunity for the user to gain extra points if they hit the "bonus" food 
+5. Allowed two food options to be displayed at the same time 
+
 
 ## CC Attribution-ShareAlike 4.0 International
+
 
 
 Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
